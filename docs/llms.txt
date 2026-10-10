@@ -1,0 +1,20 @@
+# @three-ws/signals-mcp
+
+> Discover, subscribe to, and track three.ws copy-trade signal feeds from any AI agent — a marketplace ranked by proven realized edge, a publisher leaderboard from real on-chain performance, and account-scoped subscribe + kill-switch controls over the live API.
+
+@three-ws/signals-mcp is a Model Context Protocol server from three.ws. Install: `npx -y @three-ws/signals-mcp`.
+
+## Docs
+
+- [README](https://github.com/nirholas/crypto-signals-mcp/blob/main/README.md): install, configuration, full reference
+- [Documentation site](https://nirholas.github.io/crypto-signals-mcp/): the README as a web page
+- [Full text for LLMs](https://nirholas.github.io/crypto-signals-mcp/llms-full.txt): README inlined
+- [AGENTS.md](https://github.com/nirholas/crypto-signals-mcp/blob/main/AGENTS.md): guidance for coding agents
+
+## Project
+
+- [Source](https://github.com/nirholas/crypto-signals-mcp)
+- [npm](https://www.npmjs.com/package/@three-ws/signals-mcp)
+- [three.ws](https://three.ws): the platform this is part of
+- [Issues](https://github.com/nirholas/crypto-signals-mcp/issues)
+- [MCP Registry](https://registry.modelcontextprotocol.io/?q=io.github.nirholas%2Fsignals-mcp)

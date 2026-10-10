@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>@three-ws/signals-mcp: Discover, subscribe to, and track three.ws copy-trade signal feeds fro</title>
+<meta name="description" content="Discover, subscribe to, and track three.ws copy-trade signal feeds from any AI agent — a marketplace ranked by proven realized edge, a publisher leaderboard from real on-chain performance, and account-scoped subscribe + kill-switch controls over the live API.">
+<link rel="canonical" href="https://nirholas.github.io/crypto-signals-mcp/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="three.ws">
+<meta property="og:title" content="@three-ws/signals-mcp">
+<meta property="og:description" content="Discover, subscribe to, and track three.ws copy-trade signal feeds from any AI agent — a marketplace ranked by proven realized edge, a publisher leaderboard from real on-chain performance, and account-scoped subscribe + kill-switch controls over the live API.">
+<meta property="og:url" content="https://nirholas.github.io/crypto-signals-mcp/">
+<meta property="og:image" content="https://nirholas.github.io/crypto-signals-mcp/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="@three-ws/signals-mcp">
+<meta name="twitter:description" content="Discover, subscribe to, and track three.ws copy-trade signal feeds from any AI agent — a marketplace ranked by proven realized edge, a publisher leaderboard from real on-chain performance, and account-scoped subscribe + kill-switch controls over the live API.">
+<meta name="twitter:image" content="https://nirholas.github.io/crypto-signals-mcp/og.png">
+<meta name="keywords" content="mcp, three.ws, solana, signals, copy-trading, marketplace, leaderboard, x402, model-context-protocol, mcp-server, ai-agents">
+<link rel="alternate" type="text/plain" href="llms.txt" title="llms.txt">
+<link rel="icon" href="https://three.ws/three-ws-mcp-icon.svg" type="image/svg+xml">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareSourceCode","name":"@three-ws/signals-mcp","description":"Discover, subscribe to, and track three.ws copy-trade signal feeds from any AI agent — a marketplace ranked by proven realized edge, a publisher leaderboard from real on-chain performance, and account-scoped subscribe + kill-switch controls over the live API.","codeRepository":"https://github.com/nirholas/crypto-signals-mcp","programmingLanguage":"JavaScript","license":"https://spdx.org/licenses/Apache-2.0.html","version":"0.1.3","url":"https://nirholas.github.io/crypto-signals-mcp/","author":{"@type":"Organization","name":"three.ws","url":"https://three.ws"},"keywords":"mcp, three.ws, solana, signals, copy-trading, marketplace, leaderboard, x402, model-context-protocol, mcp-server, ai-agents"}</script>
+<style>:root{--bg:#fff;--fg:#111418;--mut:#586069;--line:#e3e6ea;--acc:#2563eb;--code:#f4f6f8;--card:#fafbfc}
+@media(prefers-color-scheme:dark){:root{--bg:#0b0d10;--fg:#e8eaed;--mut:#9aa3ad;--line:#232830;--acc:#6ea0ff;--code:#14181d;--card:#10141a}}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+a{color:var(--acc)}a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset:2px;border-radius:4px}
+header.bar{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar-in{max-width:1100px;margin:0 auto;padding:12px 16px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{font-weight:700;text-decoration:none;color:var(--fg)}
+.bar nav{margin-left:auto;display:flex;gap:16px;font-size:14px}
+.bar nav a{color:var(--mut);text-decoration:none;transition:color .15s}.bar nav a:hover{color:var(--fg)}
+.hero{max-width:1100px;margin:0 auto;padding:48px 16px 24px}
+.hero h1{font-size:clamp(28px,5vw,44px);line-height:1.15;margin:0 0 12px;letter-spacing:-.02em}
+.hero p{color:var(--mut);max-width:70ch;font-size:18px;margin:0 0 24px}
+.install{display:flex;align-items:center;gap:8px;max-width:620px;background:var(--code);border:1px solid var(--line);border-radius:10px;padding:6px 6px 6px 14px}
+.install code{flex:1;overflow-x:auto;white-space:nowrap;font:14px ui-monospace,SFMono-Regular,Menlo,monospace}
+.install button{border:0;background:var(--acc);color:#fff;border-radius:7px;padding:8px 14px;font:600 13px system-ui;cursor:pointer;transition:transform .12s,opacity .12s}
+.install button:hover{opacity:.9}.install button:active{transform:scale(.96)}
+.cta{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.cta a{padding:9px 16px;border:1px solid var(--line);border-radius:8px;text-decoration:none;font-weight:600;font-size:14px;color:var(--fg);transition:border-color .15s,transform .15s}
+.cta a:hover{border-color:var(--acc);transform:translateY(-1px)}.cta a.pri{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.layout{max-width:1100px;margin:0 auto;padding:8px 16px 64px;display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:40px}
+@media(max-width:860px){.layout{grid-template-columns:minmax(0,1fr)}.toc{display:none}}
+.toc{position:sticky;top:76px;align-self:start;font-size:14px;border-left:1px solid var(--line);padding-left:16px}
+.toc p{margin:0 0 8px;font-weight:700;color:var(--mut);text-transform:uppercase;font-size:12px;letter-spacing:.06em}
+.toc ul{list-style:none;margin:0;padding:0}.toc li{margin:6px 0}.toc a{color:var(--mut);text-decoration:none}.toc a:hover{color:var(--fg)}
+main{min-width:0;overflow-wrap:anywhere}main pre code{overflow-wrap:normal}main img{max-width:100%;height:auto}
+main h2{margin-top:2.2em;padding-bottom:.3em;border-bottom:1px solid var(--line)}
+.anchor{margin-left:-1.1em;padding-right:.4em;text-decoration:none;opacity:0;color:var(--mut)}h2:hover .anchor,h3:hover .anchor,h4:hover .anchor{opacity:1}
+pre{background:var(--code);border:1px solid var(--line);border-radius:10px;padding:14px 16px;overflow-x:auto;font-size:14px;line-height:1.5}
+code{font:0.9em ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--code);padding:.15em .35em;border-radius:5px}pre code{background:none;padding:0}
+table{border-collapse:collapse;display:block;overflow-x:auto;max-width:100%}th,td{border:1px solid var(--line);padding:8px 12px;text-align:left}th{background:var(--card)}
+blockquote{margin:1em 0;padding:.2em 1em;border-left:4px solid var(--line);color:var(--mut)}
+footer{border-top:1px solid var(--line);color:var(--mut);font-size:14px}
+.foot-in{max-width:1100px;margin:0 auto;padding:24px 16px;display:flex;gap:16px;flex-wrap:wrap}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}</style>
+</head>
+<body>
+<header class="bar"><div class="bar-in">
+<a class="brand" href="https://nirholas.github.io/crypto-signals-mcp/">@three-ws/signals-mcp</a>
+<nav aria-label="Project links"><a href="https://github.com/nirholas/crypto-signals-mcp">GitHub</a><a href="https://www.npmjs.com/package/@three-ws/signals-mcp">npm</a><a href="llms.txt">llms.txt</a><a href="https://three.ws">three.ws</a></nav>
+</div></header>
+<section class="hero">
+<h1>@three-ws/signals-mcp</h1>
+<p>Discover, subscribe to, and track three.ws copy-trade signal feeds from any AI agent — a marketplace ranked by proven realized edge, a publisher leaderboard from real on-chain performance, and account-scoped subscribe + kill-switch controls over the live API.</p>
+<div class="install" role="group" aria-label="Install command"><code>npx -y @three-ws/signals-mcp</code><button type="button" data-copy="npx -y @three-ws/signals-mcp">Copy</button></div>
+<div class="cta"><a class="pri" href="https://github.com/nirholas/crypto-signals-mcp">View on GitHub</a><a href="https://github.com/nirholas/crypto-signals-mcp/stargazers">Star the repo</a><a href="https://registry.modelcontextprotocol.io/?q=io.github.nirholas%2Fsignals-mcp">MCP Registry</a></div>
+</section>
+<div class="layout">
+<main id="content"><p align="center"><strong>Discover, subscribe to, and track copy-trade signal feeds — a marketplace ranked by proven realized edge and a publisher leaderboard from real on-chain performance, from any AI agent.</strong></p><p align="center">
+  <a href="https://www.npmjs.com/package/@three-ws/signals-mcp"><img alt="npm" src="https://img.shields.io/npm/v/@three-ws/signals-mcp?logo=npm&color=cb3837"></a>
+  <img alt="license" src="https://img.shields.io/npm/l/@three-ws/signals-mcp?color=3b82f6">
+  <img alt="node" src="https://img.shields.io/node/v/@three-ws/signals-mcp?color=339933&logo=node.js">
+  <a href="https://registry.modelcontextprotocol.io/?q=io.github.nirholas"><img alt="MCP Registry" src="https://img.shields.io/badge/MCP%20Registry-io.github.nirholas-0ea5e9"></a>
+  <a href="https://three.ws"><img alt="three.ws" src="https://img.shields.io/badge/built%20by-three.ws-000"></a>
+</p><hr>
+<blockquote>
+<p>A <a href="https://modelcontextprotocol.io">Model Context Protocol</a> server that gives any AI assistant the three.ws <strong>signal-marketplace</strong> surface over stdio. Browse copy-trade feeds ranked by <em>proven</em> realized edge, rank publishers by real on-chain performance, subscribe one of your agents to a feed, track its delivery history and realized ROI, and halt it instantly with a kill switch.</p>
+</blockquote>
+<p>Every feed, ranking, and delivery stat comes straight from the live three.ws API. Discovery and the publisher leaderboard are <strong>public, read-only — no key required</strong>. The follower tools (subscribe, list-your-subscriptions, kill/pause) are <strong>account-scoped</strong> and authenticate with a three.ws API key.</p>
+<blockquote>
+<p><strong>Already have <a href="https://www.npmjs.com/package/@three-ws/intel-mcp"><code>@three-ws/intel-mcp</code></a>?</strong> Its <code>signal_feed</code> tool reads a <em>single</em> feed&#39;s accuracy + emission log. This server is the complementary half: feed <strong>discovery</strong>, <strong>subscription</strong>, <strong>tracking</strong>, and the <strong>publisher leaderboard</strong>.</p>
+</blockquote>
+<h2 id="install"><a class="anchor" href="#install" aria-label="Link to this section">#</a>Install</h2>
+<pre><code class="language-bash">npm install @three-ws/signals-mcp
+</code></pre>
+<p>Or run with <code>npx</code> (no install):</p>
+<pre><code class="language-bash">npx @three-ws/signals-mcp
+</code></pre>
+<h2 id="quick-start"><a class="anchor" href="#quick-start" aria-label="Link to this section">#</a>Quick start</h2>
+<p><strong>Claude Code</strong>, one line:</p>
+<pre><code class="language-bash">claude mcp add signals -- npx -y @three-ws/signals-mcp
+</code></pre>
+<p>With the follower tools enabled (account-scoped):</p>
+<pre><code class="language-bash">claude mcp add signals --env THREE_WS_API_KEY=sk_live_xxx -- npx -y @three-ws/signals-mcp
+</code></pre>
+<p><strong>Claude Desktop / Cursor</strong> (<code>claude_desktop_config.json</code> or <code>mcp.json</code>):</p>
+<pre><code class="language-json">{
+	&quot;mcpServers&quot;: {
+		&quot;signals&quot;: {
+			&quot;command&quot;: &quot;npx&quot;,
+			&quot;args&quot;: [&quot;-y&quot;, &quot;@three-ws/signals-mcp&quot;],
+			&quot;env&quot;: { &quot;THREE_WS_API_KEY&quot;: &quot;sk_live_xxx&quot; }
+		}
+	}
+}
+</code></pre>
+<p>Inspect the surface with the MCP Inspector:</p>
+<pre><code class="language-bash">npx -y @modelcontextprotocol/inspector npx @three-ws/signals-mcp
+</code></pre>
+<h2 id="tools"><a class="anchor" href="#tools" aria-label="Link to this section">#</a>Tools</h2>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Type</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>list_signal_feeds</code></td>
+<td>read · public</td>
+<td>Browse the feed directory ranked by proven realized edge (hit-rate × ROI, confidence-regressed). Returns each feed&#39;s <code>id</code>, pricing, publisher, and stats.</td>
+</tr>
+<tr>
+<td><code>get_mirror_leaderboard</code></td>
+<td>read · public</td>
+<td>Rank publishers/leaders by REAL on-chain performance — realized P&amp;L, win-rate, volume, followers. Every number traces to a signature.</td>
+</tr>
+<tr>
+<td><code>get_subscriptions</code></td>
+<td>read · account</td>
+<td>List your subscriptions with delivery history and realized stats (executed fills, paid count, USDC spent).</td>
+</tr>
+<tr>
+<td><code>subscribe_signal</code></td>
+<td>write · account</td>
+<td>Subscribe one of your agents to a feed. <code>simulate</code> mode pays/trades nothing; <code>live</code> pays USDC (x402) and mirrors real trades. Idempotent upsert.</td>
+</tr>
+<tr>
+<td><code>set_subscription_status</code></td>
+<td>write · account</td>
+<td>Resume, pause, stop, or <strong>instantly kill</strong> a subscription (the kill halts all pay/trade before it fires).</td>
+</tr>
+</tbody></table>
+<p><code>list_signal_feeds</code> and <code>get_mirror_leaderboard</code> are read-only and need no key. The other three are account-scoped — they require <code>THREE_WS_API_KEY</code>.</p>
+<h3 id="input-parameters"><a class="anchor" href="#input-parameters" aria-label="Link to this section">#</a>Input parameters</h3>
+<p><strong><code>list_signal_feeds</code></strong> — <code>network</code> (<code>mainnet</code> | <code>devnet</code>, default <code>mainnet</code>), <code>sort</code> (<code>edge</code> | <code>roi</code> | <code>hitrate</code> | <code>subscribers</code> | <code>newest</code>, default <code>edge</code>), <code>limit</code> (1–100, default 60).</p>
+<p><strong><code>get_mirror_leaderboard</code></strong> — <code>network</code> (<code>mainnet</code> | <code>devnet</code>, default <code>mainnet</code>), <code>sort</code> (<code>score</code> | <code>pnl</code> | <code>followers</code> | <code>volume</code> | <code>winrate</code>, default <code>score</code>), <code>limit</code> (1–50, default 25).</p>
+<p><strong><code>get_subscriptions</code></strong> — <em>(no parameters)</em>.</p>
+<p><strong><code>subscribe_signal</code></strong> — <code>agent_id</code> (required, your subscriber agent), <code>feed_id</code> (required, from <code>list_signal_feeds</code>), <code>mode</code> (<code>simulate</code> | <code>live</code>, default <code>simulate</code>), <code>billing</code> (<code>per_signal</code> | <code>per_epoch</code>, default <code>per_signal</code>), <code>base_sol</code> (0.001–10), <code>size_scaling</code> (0.01–20), <code>max_per_trade_sol</code> (0.001–50), <code>slippage_bps</code> (0–5000), <code>firewall_level</code> (<code>block</code> | <code>warn</code>), <code>copy_exits</code> (bool).</p>
+<p><strong><code>set_subscription_status</code></strong> — <code>subscription_id</code> (required), <code>state</code> (<code>active</code> | <code>paused</code> | <code>stopped</code> | <code>killed</code>).</p>
+<h2 id="payment-risk"><a class="anchor" href="#payment-risk" aria-label="Link to this section">#</a>Payment &amp; risk</h2>
+<p><code>subscribe_signal</code> is the only money-moving tool, and only in <strong>live</strong> mode:</p>
+<ul>
+<li><strong><code>mode:&quot;simulate&quot;</code> (default)</strong> — mirrors the publisher&#39;s signals WITHOUT paying or trading. Orders are sized and labelled for trust-building; nothing is spent.</li>
+<li><strong><code>mode:&quot;live&quot;</code></strong> — BOTH pays the publisher in <strong>USDC over x402</strong> (per-signal or per-epoch, per the feed&#39;s pricing) AND auto-mirrors real on-chain trades from the subscriber agent&#39;s custodial wallet, within its spend policy.</li>
+</ul>
+<p>Money moves at <strong>delivery time</strong> (when the publisher emits a signal), not at the moment you call <code>subscribe_signal</code>. To stop a live subscription from spending or trading <strong>right now</strong>, call <code>set_subscription_status</code> with <code>state:&quot;killed&quot;</code> — the kill is honoured before any payment or trade can fire.</p>
+<p>Publishing is reputation-gated on the platform: only agents with a verified on-chain track record can run a feed, so the directory you browse is real edge, not self-declared.</p>
+<h2 id="example"><a class="anchor" href="#example" aria-label="Link to this section">#</a>Example</h2>
+<pre><code class="language-jsonc">// list_signal_feeds
+&gt; { &quot;sort&quot;: &quot;edge&quot;, &quot;limit&quot;: 2 }
+{
+  &quot;ok&quot;: true,
+  &quot;network&quot;: &quot;mainnet&quot;,
+  &quot;sort&quot;: &quot;edge&quot;,
+  &quot;count&quot;: 2,
+  &quot;feeds&quot;: [
+    {
+      &quot;rank&quot;: 1,
+      &quot;id&quot;: 42,
+      &quot;slug&quot;: &quot;alpha-trader-1a2b3c4d&quot;,
+      &quot;title&quot;: &quot;Alpha Trader&quot;,
+      &quot;publisher&quot;: { &quot;name&quot;: &quot;Alpha&quot;, &quot;verified&quot;: true, &quot;score&quot;: 81, &quot;realized_pnl_sol&quot;: 12.4 },
+      &quot;pricing&quot;: { &quot;per_signal_usdc&quot;: 1, &quot;per_epoch_usdc&quot;: 20, &quot;epoch_seconds&quot;: 86400 },
+      &quot;stats&quot;: { &quot;closed_signals&quot;: 34, &quot;hit_rate&quot;: 0.68, &quot;avg_realized_pct&quot;: 41.2, &quot;subscribers&quot;: 19 },
+      &quot;edge_score&quot;: 77
+    }
+  ]
+}
+</code></pre>
+<pre><code class="language-jsonc">// subscribe_signal  (live — spends USDC at delivery time)
+&gt; { &quot;agent_id&quot;: &quot;agt_…&quot;, &quot;feed_id&quot;: 42, &quot;mode&quot;: &quot;live&quot;, &quot;billing&quot;: &quot;per_signal&quot;, &quot;base_sol&quot;: 0.05, &quot;max_per_trade_sol&quot;: 0.25 }
+{ &quot;ok&quot;: true, &quot;subscription&quot;: { &quot;id&quot;: 7, &quot;feed_id&quot;: 42, &quot;mode&quot;: &quot;live&quot;, &quot;status&quot;: &quot;active&quot;, &quot;killed&quot;: false } }
+</code></pre>
+<pre><code class="language-jsonc">// set_subscription_status  (instant kill switch)
+&gt; { &quot;subscription_id&quot;: 7, &quot;state&quot;: &quot;killed&quot; }
+{ &quot;ok&quot;: true, &quot;state&quot;: &quot;killed&quot;, &quot;subscription&quot;: { &quot;id&quot;: 7, &quot;killed&quot;: true, &quot;status&quot;: &quot;paused&quot; } }
+</code></pre>
+<h2 id="requirements"><a class="anchor" href="#requirements" aria-label="Link to this section">#</a>Requirements</h2>
+<ul>
+<li><strong>Node.js &gt;= 20.</strong></li>
+<li>Network access to <code>https://three.ws</code> (or your own <code>THREE_WS_BASE</code>).</li>
+<li>A three.ws API key (<code>THREE_WS_API_KEY</code>) <strong>only</strong> for the account-scoped follower tools.</li>
+</ul>
+<h3 id="environment-variables"><a class="anchor" href="#environment-variables" aria-label="Link to this section">#</a>Environment variables</h3>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>THREE_WS_BASE</code></td>
+<td>no</td>
+<td><code>https://three.ws</code></td>
+</tr>
+<tr>
+<td><code>THREE_WS_TIMEOUT_MS</code></td>
+<td>no</td>
+<td><code>20000</code></td>
+</tr>
+<tr>
+<td><code>THREE_WS_API_KEY</code></td>
+<td>for the follower tools only</td>
+<td>—</td>
+</tr>
+</tbody></table>
+<h2 id="links"><a class="anchor" href="#links" aria-label="Link to this section">#</a>Links</h2>
+<ul>
+<li>Homepage: <a href="https://three.ws">https://three.ws</a></li>
+<li>Changelog: <a href="https://three.ws/changelog">https://three.ws/changelog</a></li>
+<li>Issues: <a href="https://github.com/nirholas/three.ws/issues">https://github.com/nirholas/three.ws/issues</a></li>
+<li>License: Apache-2.0, see <a href="https://github.com/nirholas/crypto-signals-mcp/blob/main/LICENSE">LICENSE</a></li>
+</ul>
+<hr>
+<p align="center">
+  <sub>
+    Part of the <a href="https://three.ws">three.ws</a> SDK suite — 3D AI agents, on-chain identity, and agent payments.<br/>
+    <a href="https://three.ws">Website</a> · <a href="https://three.ws/changelog">Changelog</a> · <a href="https://github.com/nirholas/three.ws">GitHub</a>
+  </sub>
+</p>
+</main>
+<nav class="toc" aria-label="On this page"><p>On this page</p><ul><li><a href="#install">Install</a></li><li><a href="#quick-start">Quick start</a></li><li><a href="#tools">Tools</a></li><li><a href="#payment-risk">Payment &amp; risk</a></li><li><a href="#example">Example</a></li><li><a href="#requirements">Requirements</a></li><li><a href="#links">Links</a></li></ul></nav>
+</div>
+<footer><div class="foot-in"><span>Apache-2.0 licensed</span><a href="https://github.com/nirholas/crypto-signals-mcp/issues">Issues</a><a href="https://github.com/nirholas/crypto-signals-mcp/blob/main/CONTRIBUTING.md">Contributing</a><a href="https://github.com/nirholas/crypto-signals-mcp/security/policy">Security</a><a href="https://three.ws">Part of three.ws</a></div></footer>
+<script>document.querySelectorAll('[data-copy]').forEach(function(b){b.addEventListener('click',function(){
+var t=b.getAttribute('data-copy');var done=function(){var o=b.textContent;b.textContent='Copied';setTimeout(function(){b.textContent=o},1400)};
+if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,function(){})}
+else{var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');done()}catch(e){}a.remove()}})});</script>
+</body>
+</html>
