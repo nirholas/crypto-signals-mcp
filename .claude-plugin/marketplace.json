@@ -1,0 +1,23 @@
+{
+  "name": "crypto-signals-mcp",
+  "owner": {
+    "name": "nirholas"
+  },
+  "description": "Discover, rank and subscribe to three.ws copy-trade signal feeds, with a per-subscription kill switch.",
+  "plugins": [
+    {
+      "name": "signals-mcp",
+      "source": "./plugins/signals-mcp",
+      "description": "Discover, rank and subscribe to three.ws copy-trade signal feeds, with a per-subscription kill switch.",
+      "category": "finance",
+      "tags": [
+        "mcp",
+        "solana",
+        "copy-trading",
+        "signals",
+        "leaderboard",
+        "three-ws"
+      ]
+    }
+  ]
+}
