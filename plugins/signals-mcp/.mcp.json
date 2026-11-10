@@ -7,7 +7,7 @@
         "@three-ws/signals-mcp"
       ],
       "env": {
-        "THREE_WS_API_KEY": "${THREE_WS_API_KEY}"
+        "THREE_WS_API_KEY": "${THREE_WS_API_KEY:-}"
       }
     }
   }
